@@ -1,0 +1,37 @@
+public class Calculator 
+{
+
+    public static Decimal add(Decimal num1, Decimal num2) {
+        return num1 + num2;
+    }
+
+    public static Decimal subtract(Decimal num1, Decimal num2) {
+        return num1 - num2;
+    }
+
+    public static Decimal multiply(Decimal num1, Decimal num2) {
+        return num1 * num2;
+    }
+
+    public static Decimal divide(Decimal num1, Decimal num2) {
+        return num1 / num2;
+    }
+}
+
+____________________________________________________________________________________
+
+Go to Debug > Open Execute Anonymous Window and run:
+
+Decimal a = 20;
+Decimal b = 5;
+
+Decimal resultAdd = Calculator.add(a, b);
+Decimal resultSub = Calculator.subtract(a, b);
+Decimal resultMul = Calculator.multiply(a, b);
+Decimal resultDiv = Calculator.divide(a, b);
+
+System.debug('Addition: ' + resultAdd);
+System.debug('Subtraction: ' + resultSub);
+System.debug('Multiplication: ' + resultMul);
+System.debug('Division: ' + resultDiv);
+
