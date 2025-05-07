@@ -1,0 +1,58 @@
+<apex:page controller="CalculatorController">
+    <apex:form >
+        <apex:pageBlock title="Simple Calculator">
+            <apex:pageBlockSection >
+                <apex:outputLabel value="Number 1:"/>
+                <apex:inputText value="{!num1}" />
+
+                <apex:outputLabel value="Number 2:"/>
+                <apex:inputText value="{!num2}" />
+            </apex:pageBlockSection>
+
+            <apex:commandButton value="Add" action="{!add}" rerender="resultPanel"/>
+            <apex:commandButton value="Subtract" action="{!subtract}" rerender="resultPanel"/>
+            <apex:commandButton value="Multiply" action="{!multiply}" rerender="resultPanel"/>
+            <apex:commandButton value="Divide" action="{!divide}" rerender="resultPanel"/>
+            
+            <apex:outputPanel id="resultPanel">
+                <apex:outputText value="{!result}" style="font-weight:bold; display:block; margin-top:10px;"/>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
+
+
+__________________________________________________________________________________________________________
+
+
+public class CalculatorController {
+    public Decimal num1 { get; set; }
+    public Decimal num2 { get; set; }
+    public String result { get; set; }
+    
+    public CalculatorController() {
+        num1 = 0;
+        num2 = 0;
+        result = '';
+    }
+
+    public void add() {
+        result = 'Result: ' + String.valueOf(num1 + num2);
+    }
+
+    public void subtract() {
+        result = 'Result: ' + String.valueOf(num1 - num2);
+    }
+
+    public void multiply() {
+        result = 'Result: ' + String.valueOf(num1 * num2);
+    }
+
+    public void divide() {
+        if (num2 == 0) {
+            result = 'Error: Cannot divide by zero';
+        } else {
+            result = 'Result: ' + String.valueOf(num1 / num2);
+        }
+    }
+}
